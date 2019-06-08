@@ -9,21 +9,22 @@ namespace Shop0._1.Controllers
 {
     public class GoodController : Controller
     {
-        private GoodRepository repository;
-        public int PageSize = 2;        public GoodController(GoodRepository goodRepository)
+        private IGoodRepository repository;
+        public int PageSize = 4;
+        public GoodController(IGoodRepository goodRepository)
         {
             this.repository = goodRepository;
         }
-        //public ViewResult List()
-        //{
-        //    return View(repository.GetAll());
-        //}
-        public ViewResult List(int page = 1)
+        public ViewResult Index(int id= 1)
         {
-            return View(repository.GetAll()
-            .OrderBy(p => p.GoodId)
-            .Skip((page - 1) * PageSize)
-            .Take(PageSize));
+            int countofpages = (int)Math.Ceiling((double)(repository.GetAll().ToList().Count) / PageSize);
+            ViewBag.Goods = repository.GetAll()
+                                      .OrderBy(p=> p.GoodId)
+                                      .Skip((id-1)* PageSize)
+                                      .Take(PageSize);
+            ViewBag.CountOfPages = countofpages;
+            return View();
         }
+        
     }
 }

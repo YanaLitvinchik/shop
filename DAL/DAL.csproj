@@ -52,9 +52,9 @@
   <ItemGroup>
     <Compile Include="Category.cs" />
     <Compile Include="Good.cs" />
-    <Compile Include="GoodRepository.cs" />
-    <Compile Include="IGoodRepository.cs" />
-    <Compile Include="ShopModel.cs" />
+    <Compile Include="Repositories\GoodRepository.cs" />
+    <Compile Include="Repositories\IGoodRepository.cs" />
+    <Compile Include="Models\ShopModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

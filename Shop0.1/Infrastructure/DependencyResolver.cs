@@ -8,10 +8,10 @@ using System.Web.Mvc;
 
 namespace Shop0._1.Infrastructure
 {
-    public class DependencyResolver : IDependencyResolver
+    public class MyDependencyResolver : IDependencyResolver
     {
         IKernel kernel;
-        public DependencyResolver()
+        public MyDependencyResolver()
         {
             kernel = new StandardKernel();
             AddBindings();

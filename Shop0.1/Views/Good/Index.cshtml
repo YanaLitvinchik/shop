@@ -1,0 +1,36 @@
+﻿@model DAL.Good
+@{
+    ViewBag.Title = "Canon";
+}
+
+
+<div class="container">
+    <div class="row">
+        @foreach (var good in ViewBag.Goods)
+        {
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="@Url.Content("~/" + good.ImageUrl + ".jpg")" id="imgCard" class="card-img-top"  alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@good.GoodName</h5>
+                        <p class="card-text">@good.ShortDescription</p>
+                        <a href="#" class="btn btn-primary">Buy</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+<nav>
+    <ul class="pagination">
+        @for (int i = 0; i < ViewBag.CountOfPages; i++)
+        {
+            <li class="page-item">
+                @Html.ActionLink((i + 1).ToString(), "Index", new { id = i + 1 }, new { @class = "page-link" })
+            </li>
+        }
+    </ul>
+</nav>
+
