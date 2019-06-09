@@ -10,7 +10,7 @@ namespace Shop0._1.Controllers
     public class GoodController : Controller
     {
         private IGoodRepository repository;
-        public int PageSize = 4;
+        public int PageSize = 8;
         public GoodController(IGoodRepository goodRepository)
         {
             this.repository = goodRepository;

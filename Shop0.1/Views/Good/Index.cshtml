@@ -1,27 +1,27 @@
 ﻿@model DAL.Good
 @{
     ViewBag.Title = "Canon";
+
 }
 
 
 <div class="container">
-    <div class="row">
+    <div class="row" >
         @foreach (var good in ViewBag.Goods)
         {
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="@Url.Content("~/" + good.ImageUrl + ".jpg")" id="imgCard" class="card-img-top"  alt="...">
+            <div class="col-md-4" >
+                <div class="card">
+                    <img src="@Url.Content("~/" + good.ImageUrl + ".jpg")" class="card-img-top"  alt="...">
                     <div class="card-body">
                         <h5 class="card-title">@good.GoodName</h5>
                         <p class="card-text">@good.ShortDescription</p>
-                        <a href="#" class="btn btn-primary">Buy</a>
+                        <button type="button" class="btn btn-outline-success">Buy</button>
                     </div>
                 </div>
             </div>
         }
     </div>
 </div>
-
 
 <nav>
     <ul class="pagination">
