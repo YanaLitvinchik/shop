@@ -1,13 +1,16 @@
 ﻿body {
-    margin:0px;
+    /*margin: 1px;*/
 }
+
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
 }
+
 .dl-horizontal dt {
     white-space: normal;
 }
+
 input,
 select,
 textarea {
@@ -18,22 +21,68 @@ textarea {
     float: right;
     margin: 8px 10px;
 }
+
 .logoimage {
     margin: 10px 10px;
+    float: left;
 }
-
-
 /*-------------------------*/
-.card > img{
-    width:100%;
+.card > img {
+    width: 100%;
     height: 50%;
 }
-.row > col-md-4 {
-    margin: 100px 100px;
+.col-5 .nav-item {
+    font-weight: 300;
+    text-align: center;
+    margin-right: 10px;
 }
 
-.col-md-4 {
-    margin: 100px 100px;
+.row > .col-md-4 {
+    margin: 5px 0px;
+    padding: 2px 1px;
+}
+
+.card-title {
+    font-weight: 500;
 }
 
 
+
+
+.nav-item > a:hover {
+    color: black;
+    font-weight: 400;
+    text-decoration: none;
+    background-size: 100% .063em, 100% .063em;
+    background-position: left bottom;
+}
+
+.nav-item >     a {
+    color: gray;
+    background-image: linear-gradient(#EE5E4F 50%, #EE5E4F 50%), linear-gradient(silver 50%, silver 50%);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 0 .063em, 100% .063em;
+    color: #607584;
+    padding-bottom: .188em;
+    transition: background-size .5s;
+}
+
+H2 {
+    margin-top: 0.3em
+}
+
+TFOOT TD {
+    border-top: 1px dotted gray;
+    font-weight: bold;
+}
+
+.actionButtons A, INPUT.actionButtons {
+    font: .8em Arial;
+    color: White;
+    margin: .5em;
+    text-decoration: none;
+    padding: .15em 1.5em .2em 1.5em;
+    background-color: #353535;
+    border: 1px solid black;
+}

@@ -15,13 +15,13 @@ namespace Shop0._1
             routes.MapRoute(
                              name: null,
                              url: "Page{page}",
-                             defaults: new { Controller = "Good", action = "Index" }
+                             defaults: new { Controller = "Good", action = "AllGood" }
                             );
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Good", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Good", action = "AllGood", id = UrlParameter.Optional }
             );
         }
     }

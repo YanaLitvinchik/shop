@@ -15,7 +15,7 @@ namespace Shop0._1.Controllers
         {
             this.repository = goodRepository;
         }
-        public ViewResult Index(int id= 1)
+        public ViewResult AllGood(int id = 1)
         {
             int countofpages = (int)Math.Ceiling((double)(repository.GetAll().ToList().Count) / PageSize);
             ViewBag.Goods = repository.GetAll()
@@ -25,6 +25,20 @@ namespace Shop0._1.Controllers
             ViewBag.CountOfPages = countofpages;
             return View();
         }
-        
+        public ActionResult Cameras()
+        {
+            ViewBag.Goods = repository.GetAll().Where(p => p.CategoryId == 1).ToList();
+            return View();
+        }
+        public ActionResult Lenses()
+        {
+            ViewBag.Goods = repository.GetAll().Where(p => p.CategoryId == 2).ToList();
+            return View();
+        }
+        public ActionResult Camcoders()
+        {
+            ViewBag.Goods = repository.GetAll().Where(p => p.CategoryId == 3).ToList();
+            return View();
+        }
     }
 }

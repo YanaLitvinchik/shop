@@ -13,8 +13,8 @@ namespace DAL
         {
         }
 
-        public virtual DbSet<Category> Category { get; set; }       //was Categories
-        public virtual DbSet<Good> Good { get; set; }           //was Goods
+        public virtual DbSet<Category> Category { get; set; }       
+        public virtual DbSet<Good> Good { get; set; }           
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

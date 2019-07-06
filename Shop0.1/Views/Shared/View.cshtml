@@ -1,0 +1,34 @@
+﻿@*попытки*@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="col">
+        <div class="logoimage"><img src="~/pict/logo.png" width="150"></div>
+    </div>
+
+    <div class="collapse navbar-collapse text-center" id="navbarTogglerDemo03">
+
+        <div class="col-5">
+            <ul class="nav justify-content-center mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a>@Html.ActionLink("HOME", "AllGood", "Good") <span class="sr-only">@Html.ActionLink("HOME", "AllGood", "Good")</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">@Html.ActionLink("CAMERAS", "Cameras", "Good")</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">LENSES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"> CAMCODERS</a>
+                    </li>
+
+                </ul>
+        </div>
+    </div>
+    <div class="col">
+        <button type="button" class="btn btn-success">Register</button>
+    </div>
+</nav>

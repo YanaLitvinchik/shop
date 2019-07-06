@@ -1,0 +1,29 @@
+﻿
+@model DAL.Good
+
+@{
+    ViewBag.Title = "Camcoders";
+}
+
+<h2>Camcoders here</h2>
+
+
+<div class="container">
+    <div class="row" style=" margin-top: 100px;">
+        @foreach (var good in ViewBag.Goods)
+        {
+            <div class="col-md-4" style="margin: 5px 0px;padding: 2px 5px;">
+                <div class="card">
+                    <img src="@Url.Content("~/" + good.ImageUrl + ".jpg")" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@good.GoodName</h5>
+                        <p class="card-text">@good.ShortDescription</p>
+                        <h3 class="card-text"> @good.Price</h3>
+                        <button type="button" class="btn btn-info">Add to basket</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
