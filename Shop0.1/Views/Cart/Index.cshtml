@@ -1,4 +1,4 @@
-﻿
+﻿@model DAL.Entities.CartLine
 @{
     ViewBag.Title = "Cart";
 }
@@ -8,33 +8,33 @@
 <table style="width:90%;" align="center">
     <thead>
         <tr>
-            <th align="center">Quantity</th>
+            <th align="right">Quantity</th>
             <th align="left">Item</th>
             <th align="right">Price</th>
             <th align="right">Subtotal</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var line in Model.Cart.Lines)
-        {
+        @*@foreach (var line in Model.Cart.Lines)
+        {*@
             <tr>
-                <td align="center">@line.Quantity</td>
-                <td align="left">@line.Good.Name</td>
-                <td align="right">@line.Good.Price.ToString("c")</td>
-                <td align="right">@((line.Quantity * line.Good.Price).ToString("c"))</td>
+                <td align="center">@Model.Quantity</td>
+                <td align="left">@Model.Good.GoodName</td>
+                <td align="left">@Model.Good.Price.ToString("c")</td>
+                <td align="left">@((Model.Quantity * Model.Good.Price).ToString("c"))</td>
             </tr>
-        }
+        @*}*@
     </tbody>
-    <tfoot>
+    @*<tfoot>
         <tr>
             <td colspan="3" align="right">Total:</td>
             <td align="right">
                 @Model.Cart.ComputeTotalValue().ToString("c")
             </td>
         </tr>
-    </tfoot>
+    </tfoot>*@
 </table>
-<p align="center" class="actionButtons">
+@*<p align="center" class="actionButtons">
     <a href="@Model.ReturnUrl">Continue shopping</a>
-</p>
+</p>*@
 

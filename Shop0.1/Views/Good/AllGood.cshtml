@@ -17,14 +17,18 @@
                         <h5 class="card-title">@good.GoodName</h5>
                         <p class="card-text">@good.ShortDescription</p>
                         <h3 class="card-text"> @good.Price</h3>
-                        @*<button type="button" class="btn btn-info">Add to basket</button>*@
+                        <button type="button" class="btn btn-info">
+                            @Html.ActionLink("Add to basket", "AddToCart", "Cart", new { goodId = good.GoodId, returnUrl = Request.Url.PathAndQuery }, null)
+                        </button>
                         <div class="item">
-                            @using (Html.BeginForm("AddToCart", "Index"))
-                            {
-                                @Html.HiddenFor(x => x.GoodId)
-                                @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-                                <input type="submit" value="Add to basket" />
-                            }
+   
+                            @*@Html.ActionLink("AddToCart", "AddToCart", "Cart", new { goodId = good.GoodId, returnUrl = Request.Url.PathAndQuery },null)*@
+                            @*@using (Html.BeginForm("AddToCart", "Index"))
+        {
+            @Html.HiddenFor(x => x.GoodId)
+            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+            <input type="submit" value="Add to basket" />
+        }*@
                         </div>
                     </div>
                 </div>
@@ -38,7 +42,7 @@
         @for (int i = 0; i < ViewBag.CountOfPages; i++)
         {
             <li class="page-item">
-                @Html.ActionLink((i + 1).ToString(), "Index", new { id = i + 1 }, new { @class = "page-link" })
+                @Html.ActionLink((i + 1).ToString(), "AllGood", new { id = i + 1 }, new { @class = "page-link" })
             </li>
         }
     </ul>

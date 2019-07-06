@@ -46,9 +46,5 @@ namespace DAL.Entities
         }
     }
 
-    public class CartLine
-    {
-        public Good Good { get; set; }
-        public int Quantity { get; set; }
-    }
+    
 }

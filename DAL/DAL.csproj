@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Category.cs" />
     <Compile Include="Entities\Cart.cs" />
+    <Compile Include="Entities\CartLine.cs" />
     <Compile Include="Good.cs" />
     <Compile Include="Repositories\GoodRepository.cs" />
     <Compile Include="Repositories\IGoodRepository.cs" />

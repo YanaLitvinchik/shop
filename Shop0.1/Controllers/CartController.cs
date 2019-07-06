@@ -16,15 +16,16 @@ namespace Shop0._1.Controllers
         {
             repository = repo;
         }
-        public RedirectToRouteResult AddToCart(int? goodId, string returnUrl)
+        public ViewResult AddToCart(int? goodId, string returnUrl)
         {
             Good good = repository.GetAll()
                                      .FirstOrDefault(p => p.GoodId == goodId);
+            Cart cl = GetCart();
             if (good != null)
             {
-                GetCart().AddItem(good, 1);
+                cl.AddItem(good, 1);
             }
-            return RedirectToAction("Index", new { returnUrl });
+            return View("Index", cl.Lines.First());
         }
         public RedirectToRouteResult RemoveFromCart(int? goodId, string returnUrl)
         {
