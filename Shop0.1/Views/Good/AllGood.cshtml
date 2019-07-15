@@ -16,20 +16,10 @@
                     <div class="card-body">
                         <h5 class="card-title">@good.GoodName</h5>
                         <p class="card-text">@good.ShortDescription</p>
-                        <h3 class="card-text"> @good.Price</h3>
-                        <button type="button" class="btn btn-info">
+                        <h3 class="card-text"> @good.Price.ToString("c")</h3>
+                        <button id="btnbasket" type="button" class="btn btn-info">
                             @Html.ActionLink("Add to basket", "AddToCart", "Cart", new { goodId = good.GoodId, returnUrl = Request.Url.PathAndQuery }, null)
                         </button>
-                        <div class="item">
-   
-                            @*@Html.ActionLink("AddToCart", "AddToCart", "Cart", new { goodId = good.GoodId, returnUrl = Request.Url.PathAndQuery },null)*@
-                            @*@using (Html.BeginForm("AddToCart", "Index"))
-        {
-            @Html.HiddenFor(x => x.GoodId)
-            @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
-            <input type="submit" value="Add to basket" />
-        }*@
-                        </div>
                     </div>
                 </div>
             </div>

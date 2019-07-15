@@ -12,23 +12,64 @@
 
         <div class="col-5">
             <ul class="nav justify-content-center mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a>@Html.ActionLink("HOME", "AllGood", "Good") <span class="sr-only">@Html.ActionLink("HOME", "AllGood", "Good")</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#">@Html.ActionLink("CAMERAS", "Cameras", "Good")</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#">LENSES</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#"> CAMCODERS</a>
-                    </li>
+                <li class="nav-item active">
+                    <a>@Html.ActionLink("HOME", "AllGood", "Good") <span class="sr-only">@Html.ActionLink("HOME", "AllGood", "Good")</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">@Html.ActionLink("CAMERAS", "Cameras", "Good")</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">LENSES</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#"> CAMCODERS</a>
+                </li>
 
-                </ul>
+            </ul>
         </div>
     </div>
     <div class="col">
         <button type="button" class="btn btn-success">Register</button>
     </div>
 </nav>
+
+
+@model DAL.Entities.CartLine
+@{
+    ViewBag.Title = "Cart";
+}
+
+
+<h2>Your cart</h2>
+<table style="width:90%;" align="center">
+    <thead>
+        <tr>
+            <th align="right">Quantity</th>
+            <th align="left">Item</th>
+            <th align="right">Price</th>
+            <th align="right">Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @*@foreach (var line in Model.Cart.Lines)
+            {*@
+        <tr>
+            <td align="center">@Model.Quantity</td>
+            <td align="left">@Model.Good.GoodName</td>
+            <td align="left">@Model.Good.Price.ToString("c")</td>
+            <td align="left">@((Model.Quantity * Model.Good.Price).ToString("c"))</td>
+        </tr>
+        @*}*@
+    </tbody>
+    @*<tfoot>
+            <tr>
+                <td colspan="3" align="right">Total:</td>
+                <td align="right">
+                    @Model.Cart.ComputeTotalValue().ToString("c")
+                </td>
+            </tr>
+        </tfoot>*@
+</table>
+@*<p align="center" class="actionButtons">
+        <a href="@Model.ReturnUrl">Continue shopping</a>
+    </p>*@

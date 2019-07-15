@@ -1,6 +1,5 @@
-﻿body {
-    background-color:darkcyan;
-}
+﻿/*body {
+}*/
 
 .body-content {
     padding-left: 15px;
@@ -85,4 +84,48 @@ TFOOT TD {
     padding: .15em 1.5em .2em 1.5em;
     background-color: #353535;
     border: 1px solid black;
+}
+#btnbasket > a{
+    text-decoration:none;
+    color: white;
+}
+
+DIV#cart {
+    float: right;
+    margin: .8em;
+    color: Silver;
+    background-color: #555;
+    padding: .5em .5em .5em 1em;
+}
+
+DIV#cart A {
+    text-decoration: none;
+    padding: .4em 1em .4em 1em;
+    line-height: 2.1em;
+    margin-left: .5em;
+    background-color: #333;
+    color: White;
+    border: 1px solid black;
+}
+
+
+/*#btnreg {
+    height: 50px;
+    width: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}*/
+
+.dropdown {
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+
+.icon {
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
 }

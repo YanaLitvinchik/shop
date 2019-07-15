@@ -50,9 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IOrderProcessor.cs" />
     <Compile Include="Category.cs" />
+    <Compile Include="Concrete\EmailOrderProcessor.cs" />
     <Compile Include="Entities\Cart.cs" />
     <Compile Include="Entities\CartLine.cs" />
+    <Compile Include="Entities\ShippingDetails.cs" />
     <Compile Include="Good.cs" />
     <Compile Include="Repositories\GoodRepository.cs" />
     <Compile Include="Repositories\IGoodRepository.cs" />

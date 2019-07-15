@@ -1,4 +1,6 @@
-﻿using Shop0._1.Infrastructure;
+﻿using DAL.Entities;
+using Shop0._1.Binders;
+using Shop0._1.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +20,7 @@ namespace Shop0._1
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             DependencyResolver.SetResolver(new MyDependencyResolver());
+            ModelBinders.Binders.Add(typeof(Cart), new CartModelBinder());                  
         }
     }
 }

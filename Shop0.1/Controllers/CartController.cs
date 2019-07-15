@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DAL.Abstract;
 using DAL.Entities;
 using Shop0._1.Models;
 using System;
@@ -12,40 +13,127 @@ namespace Shop0._1.Controllers
     public class CartController : Controller
     {
         private IGoodRepository repository;
-        public CartController(IGoodRepository repo)
+        private IOrderProcessor orderProcessor;
+        public CartController(IGoodRepository repo, IOrderProcessor proc)
         {
             repository = repo;
+            orderProcessor = proc;
         }
-        public ViewResult AddToCart(int? goodId, string returnUrl)
+        public ViewResult Index(Cart cart ,string returnUrl)
         {
+            return View(new CartIndexViewModel
+            {
+                Cart = cart,
+                ReturnUrl = returnUrl
+            });
+        }
+        public RedirectToRouteResult AddToCart(Cart cart, int goodId, string returnUrl)
+        {
+
             Good good = repository.GetAll()
-                                     .FirstOrDefault(p => p.GoodId == goodId);
-            Cart cl = GetCart();
+                                  .FirstOrDefault(p => p.GoodId == goodId);
             if (good != null)
             {
-                cl.AddItem(good, 1);
+                cart.AddItem(good, 1);
             }
-            return View("Index", cl.Lines.First());
+            return RedirectToAction("Index", new { returnUrl });
         }
-        public RedirectToRouteResult RemoveFromCart(int? goodId, string returnUrl)
+        public RedirectToRouteResult RemoveFromCart(Cart cart, int? goodId, string returnUrl)
         {
             Good good = repository.GetAll()
                                   .FirstOrDefault(p => p.GoodId == goodId);
             if (good != null)
             {
-                GetCart().RemoveLine(good);
+                cart.RemoveLine(good);
             }
             return RedirectToAction("Index", new { returnUrl });
         }
-        private Cart GetCart()
+        public PartialViewResult Summary(Cart cart)
         {
-            Cart cart = (Cart)Session["Cart"];
-            if (cart == null)
+            return PartialView(cart);
+        }
+        [HttpPost]
+        public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
+        {
+            if (cart.Lines.Count() == 0)
             {
-                cart = new Cart();
-                Session["Cart"] = cart;
+                ModelState.AddModelError("", "Sorry, your cart is empty!");
             }
-            return cart;
+            if (ModelState.IsValid)
+            {
+                orderProcessor.ProcessOrder(cart, shippingDetails);
+                cart.Clear();
+                return View("Completed");
+            }
+            else
+            {
+                return View(shippingDetails);
+            }
+        }
+        public ViewResult Checkout()
+        {
+            return View(new ShippingDetails());
         }
     }
 }
+
+
+
+
+
+
+#region
+//public ViewResult Index(string returnUrl)
+//{
+//    return View(new CartIndexViewModel
+//    {
+//        Cart = GetCart(),
+//        ReturnUrl = returnUrl
+//    });
+//}
+
+////first try of method AddToCart
+////public ViewResult AddToCart(int? goodId, string returnUrl)
+////{
+////    Good good = repository.GetAll()
+////                             .FirstOrDefault(p => p.GoodId == goodId);
+////    Cart cl = GetCart();
+////    if (good != null)
+////    {
+////        cl.AddItem(good, 1);
+////    }
+////    return View("Index", cl.Lines.First());
+////}
+//public RedirectToRouteResult AddToCart(int goodId, string returnUrl)
+//{
+
+//    Good good = repository.GetAll()
+//                          .FirstOrDefault(p => p.GoodId == goodId);
+//    if (good != null)
+//    {
+//        GetCart().AddItem(good, 1);
+//    }
+//    return RedirectToAction("Index", new { returnUrl });
+//}
+//public RedirectToRouteResult RemoveFromCart(int? goodId, string returnUrl)
+//{
+//    Good good = repository.GetAll()
+//                          .FirstOrDefault(p => p.GoodId == goodId);
+//    if (good != null)
+//    {
+//        GetCart().RemoveLine(good);
+//    }
+//    return RedirectToAction("Index", new { returnUrl });
+//}
+//private Cart GetCart()
+//{
+//    Cart cart = (Cart)Session["Cart"];
+//    if (cart == null)
+//    {
+//        cart = new Cart();
+//        Session["Cart"] = cart;
+//    }
+//    return cart;
+//}
+//    }
+#endregion
