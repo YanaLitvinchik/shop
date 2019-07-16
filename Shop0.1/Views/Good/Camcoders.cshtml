@@ -8,7 +8,7 @@
 <h2>Camcoders here</h2>
 
 
-<div class="container">
+
     <div class="row" style=" margin-top: 100px;">
         @foreach (var good in ViewBag.Goods)
         {
@@ -16,7 +16,7 @@
                 <div class="card">
                     <img src="@Url.Content("~/" + good.ImageUrl + ".jpg")" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">@good.GoodName</h5>
+                        <h4 class="card-title">@good.GoodName</h4>
                         <p class="card-text">@good.ShortDescription</p>
                         <h3 class="card-text"> @good.Price.ToString("c")</h3>
                         <button id="btnbasket" type="button" class="btn btn-info">
@@ -27,5 +27,4 @@
             </div>
         }
     </div>
-</div>
 

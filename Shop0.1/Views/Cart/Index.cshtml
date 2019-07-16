@@ -2,50 +2,94 @@
 @{
     ViewBag.Title = "Cart";
 }
-
-
 <h2>Your basket</h2>
 <div class="container">
-<table style="width:90%;" align="center">
-    <thead>
-        <tr>
-            <th align="center">Quantity</th>
-            <th align="left">Item</th>
-            <th align="right">Price</th>
-            <th align="right">Subtotal</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var line in Model.Cart.Lines)
-        {
-        <tr>
-            <td align="center">@line.Quantity</td>
-            <td align="left"> @line.Good.GoodName</td>
-            <td align="right">@line.Good.Price.ToString("c")</td>
-            <td align="right">@((line.Quantity * line.Good.Price).ToString("c"))</td>
-            <td>
-                @using (Html.BeginForm("RemoveFromCart", "Cart"))
-                {
-                    @Html.Hidden("GoodId", line.Good.GoodId)
-                    @Html.HiddenFor(x => x.ReturnUrl)
-                    <input class="actionButtons" type="submit" value="Remove" />
-                }
-            </td>
-        </tr>
-        }
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="3" align="right">Total:</td>
-            <td align="right">
-                @Model.Cart.ComputeTotalValue().ToString("c")
-            </td>
-        </tr>
-    </tfoot>
-</table>
-<p align="center" class="actionButtons">
-    <a href="@Model.ReturnUrl">Continue shopping</a>
-    @Html.ActionLink("Checkout now", "Checkout")
-</p>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                
+                <th scope="col">Quantity</th>
+                <th scope="col">Item</th>
+                <th scope="col">Price</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var line in Model.Cart.Lines)
+            {
+                <tr>
+                    <td>@line.Quantity</td>
+                    <td>@line.Good.GoodName</td>
+                    <td>@line.Good.Price.ToString("c")</td>
+                    <td>@((line.Quantity * line.Good.Price).ToString("c"))</td>
+                    <td>
+                        <button id="btnbasket" type="button" class="btn btn-danger">
+                            @Html.ActionLink("Remove", "RemoveFromCart", "Cart", new { goodId = line.Good.GoodId, returnUrl = Request.Url.PathAndQuery }, null)
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" align="right">Total:</td>
+                <td align="right">
+                    @Model.Cart.ComputeTotalValue().ToString("c")
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+    <p align="center" class="actionButtons">
+        <button id="btnbasket" type="button" class="btn btn-success">
+            @Html.ActionLink("Checkout now", "Checkout")
+        </button>
+        <a href="@Model.ReturnUrl" class="btn btn-info btn-lg " role="button" aria-pressed="true">Continue shopping</a>
 
-    </div>
+</p>
+</div>
+    @*<h2>Your basket</h2>
+    <div class="container">
+        <table style="width:90%;" align="center">
+            <thead>
+                <tr>
+                    <th align="center">Quantity</th>
+                    <th align="left">Item</th>
+                    <th align="right">Price</th>
+                    <th align="right">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var line in Model.Cart.Lines)
+                {
+                    <tr>
+                        <td align="center">@line.Quantity</td>
+                        <td align="left"> @line.Good.GoodName</td>
+                        <td align="right">@line.Good.Price.ToString("c")</td>
+                        <td align="right">@((line.Quantity * line.Good.Price).ToString("c"))</td>
+                        <td>
+                            @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                            {
+                                @Html.Hidden("GoodId", line.Good.GoodId)
+                                @Html.HiddenFor(x => x.ReturnUrl)
+                                <input class="actionButtons" type="submit" value="Remove" />
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" align="right">Total:</td>
+                    <td align="right">
+                        @Model.Cart.ComputeTotalValue().ToString("c")
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <p align="center" class="actionButtons">
+            <a href="@Model.ReturnUrl">Continue shopping</a>
+            @Html.ActionLink("Checkout now", "Checkout")
+        </p>
+
+    </div>*@
