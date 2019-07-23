@@ -20,7 +20,7 @@ namespace DAL.Concrete
         public string ServerName = "smtp.example.com";
         public int ServerPort = 587;
         public bool WriteAsFile = false;
-        public string FileLocation = @"c:\my_shop_emails";
+        public string FileLocation = @"c:\myshopemails";
     }
     public class EmailOrderProcessor : IOrderProcessor
     {

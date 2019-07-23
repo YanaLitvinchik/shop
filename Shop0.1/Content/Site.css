@@ -18,10 +18,20 @@ textarea {
     max-width: 280px;
 }
 
-.btn {
+#btnitems {
     float: right;
-    margin: 8px 10px;
+    margin: 8px 10px; /*!!!!!!!!!!!!!!!!!!!!!*/
     font-size: 15px;
+}
+.btn {
+                         /*!!!!!!!!!!!!!!!!!!!!!*/
+    font-size: 15px;
+}
+
+
+#btnitems > a {
+    text-decoration: none;
+    color: white;
 }
 
 .logoimage {
@@ -49,7 +59,7 @@ textarea {
     font-weight: 500;
 }
 
-.nav-item > a:hover {
+.nav-link:hover {
     color: black;
     font-weight: 400;
     text-decoration: none;
@@ -57,7 +67,7 @@ textarea {
     background-position: left bottom;
 }
 
-.nav-item > a {
+.nav-link {
     color: gray;
     background-image: linear-gradient(#EE5E4F 50%, #EE5E4F 50%), linear-gradient(silver 50%, silver 50%);
     background-position: center bottom;
@@ -68,14 +78,7 @@ textarea {
     transition: background-size .5s;
 }
 
-/*H2 {
-    margin-top: 0.3em
-}
-TFOOT TD {
-    border-top: 1px dotted gray;
-    font-weight: bold;
-}
-*/
+
 
 .dropdown-menu {
     left: 50% !important;
@@ -83,10 +86,6 @@ TFOOT TD {
     top: 100% !important;
 }
 
-#btnbasket > a {
-    text-decoration: none;
-    color: white;
-}
 
 .actionButtons A, INPUT.actionButtons {
     color: White;
@@ -147,6 +146,7 @@ DIV#cart A {
     font-size: 12px;
     font-weight: 500;
     letter-spacing: 1px;
+    margin: 10px 10px;
 }
 
 .dropdown {
@@ -154,20 +154,11 @@ DIV#cart A {
     font-weight: 600;
     text-decoration: none;
     font-size: 17px;
-    margin: 10px 10px 10px 10px;
+    margin: 10px 10px ;
 }
-
-.dropdown-menu.show {
-    margin-top: 50px;
-}
-
 .iconbasket {
     width: 20px;
     height: 20px;
-}
-
-#bst {
-    border: 1px solid grey;
 }
 
 #basket {

@@ -255,7 +255,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Good\AllGood.cshtml" />
     <Content Include="Views\Good\Cameras.cshtml" />
-    <Content Include="Views\Shared\View.cshtml" />
+    <Content Include="Views\Shared\Ets.cshtml" />
     <Content Include="Views\Good\Lenses.cshtml" />
     <Content Include="Views\Good\Camcoders.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
