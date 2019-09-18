@@ -1,7 +1,50 @@
-﻿
+﻿@model DAL.Good
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>245</h2>
+<div class="container">
+    <h2>All goods</h2>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.GoodName)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.ShortDescription)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Price)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Category)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.GoodCount)</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var good in ViewBag.Goods)
+            {
+
+                <tr>
+                    <td>
+                        @good.GoodId
+                    </td>
+                    <td>@good.GoodName</td>
+                    <td>@good.ShortDescription</td>
+                    <td>@good.Price</td>
+                    <td>@good.CategoryId</td>
+                    <td>@good.GoodCount</td>
+                    <td>
+                        <a class="btn btn-info" href="@Url.Action("Edit", "Admin", new { goodId = good.GoodId }, null)" role="button">Edit</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" href="#" role="button">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @RenderPage("~/Views/Admin/Pagination.cshtml")
+</div>
 

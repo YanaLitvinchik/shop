@@ -27,9 +27,12 @@
                     <a class="nav-link" href="@Url.Action("Lenses", "Good")">LENSES</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("Camcoders", "Good")">CAMCODERS</a>
+                    <a class="nav-link" href="@Url.Action("Camcoders", "Good" )">CAMCODERS</a>
                 </li>
-                </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Admin")">ADMIN</a>
+                </li>
+            </ul>
             <div class="btn-group">
                 <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="icon" src="~/pict/regicon.png" />
@@ -47,7 +50,7 @@
     </nav>
     <div class="container body-content">
         @RenderBody()
-        <hr/>
+        <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - Created by Yana Lytvynchyk</p>
         </footer>

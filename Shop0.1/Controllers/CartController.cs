@@ -59,16 +59,14 @@ namespace Shop0._1.Controllers
             {
                 ModelState.AddModelError("", "Sorry, your cart is empty!");
             }
-            if (ModelState.IsValid)
+            else
             {
                 orderProcessor.ProcessOrder(cart, shippingDetails);
                 cart.Clear();
                 return View("Completed");
             }
-            else
-            {
-                return View(shippingDetails);
-            }
+            return View(shippingDetails);
+            
         }
         public ViewResult Checkout()
         {

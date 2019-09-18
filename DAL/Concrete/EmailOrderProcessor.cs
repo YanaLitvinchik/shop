@@ -12,7 +12,7 @@ namespace DAL.Concrete
 {
     public class EmailSettings
     {
-        public string MailToAddress = "orders@example.com";
+        public string MailToAddress = "litvinchikyana@ukr.net";
         public string MailFromAddress = "sportsstore@example.com";
         public bool UseSsl = true;
         public string Username = "MySmtpUsername";

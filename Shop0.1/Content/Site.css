@@ -108,6 +108,9 @@ DIV#cart A {
     height: 20px;
     background-repeat: no-repeat;
 }
+.validation-summary-errors{
+    color:red;
+}
 /*.dropdown-menu:before {
     position: absolute;
     top: -7px;
@@ -130,7 +133,6 @@ DIV#cart A {
     border-left: 6px solid transparent;
     content: '';
 }*/
-
 .dropdown-menu:before, .dropdown-menu.pull-right:before {
     right: 12px;
     left: auto;
@@ -164,3 +166,4 @@ DIV#cart A {
 #basket {
     margin-left: 50px;
 }
+

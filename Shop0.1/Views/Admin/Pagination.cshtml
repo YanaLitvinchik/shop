@@ -1,0 +1,16 @@
+﻿@model DAL.Good
+
+<div class="d-flex flex-row-reverse bd-highlight">
+    <div class="p-2 bd-highlight">
+        <nav>
+            <ul class="pagination">
+                @for (int i = 0; i < ViewBag.CountOfPages; i++)
+                {
+                    <li class="page-item">
+                        @Html.ActionLink((i + 1).ToString(), "Index", new { id = i + 1 }, new { @class = "page-link" })
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+</div>
