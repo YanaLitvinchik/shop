@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity.Migrations;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
+
 
 namespace DAL
 {
@@ -30,7 +32,25 @@ namespace DAL
         }
         public void SaveChanges()
         {
-            db.SaveChanges();
+
+            try
+            {
+
+                db.SaveChanges();
+
+            }
+            catch (DbEntityValidationException ex)
+            {
+                foreach (DbEntityValidationResult validationError in ex.EntityValidationErrors)
+                {
+                    System.Diagnostics.Debug.WriteLine("Object: " + validationError.Entry.Entity.ToString());
+                    
+                        foreach (DbValidationError err in validationError.ValidationErrors)
+                        {
+                        System.Diagnostics.Debug.WriteLine(err.ErrorMessage + " ");
+                        }
+                }
+            }
         }
     }
 }

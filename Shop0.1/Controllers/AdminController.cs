@@ -19,6 +19,7 @@ namespace Shop0._1.Controllers
         }
         public ViewResult Index(int id = 1)
         {
+            Session["LastPage"] = id;
             int countofpages = (int)Math.Ceiling((double)(repository.GetAll().ToList().Count) / PageSize);
             ViewBag.Goods = repository.GetAll()
                                       .OrderBy(p => p.GoodId)
@@ -27,41 +28,27 @@ namespace Shop0._1.Controllers
             ViewBag.CountOfPages = countofpages;
             return View();
         }
-        public ViewResult Edit(int goodId)// have not done in index
+        public ActionResult NewGood(int id = 0)
         {
-            Good good = new Good();
-            good = repository.GetAll().FirstOrDefault(p => p.GoodId == goodId);
-            return View(good);
+            return View(repository.Get(id));
+        }
+        [HttpPost]
+        public ActionResult NewGood(Good newGood)
+        {
+            repository.CreateOrUpdate(newGood);
+            repository.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Delete(int id)
+        {
+            repository.Remove(repository.Get(id));
+            repository.SaveChanges();
+
+            int redirectPage = (int)Session["LastPage"];
+
+            return RedirectToAction("Index", new { id = redirectPage });
         }
     }
 }
 
-
-
-//static List<Car> cars;
-//public HomeController()
-//{
-//    cars = cars ?? Car.GetCars();
-//}
-//public ActionResult AddCar()
-//{
-//    return View();
-//}
-//[HttpPost]
-//public ActionResult AddCar(Car newCar)
-//{
-//    if (ModelState.IsValid)
-//        cars.Add(newCar);
-//    return RedirectToAction("Index");
-//}
-//// GET: Home
-//public ActionResult Index()
-//{
-//    ViewBag.AllCars = cars;
-//    return View();
-//}
-//public ActionResult Delete(int id)
-//{
-//    cars.Remove(cars.Find(x => x.Id == id));
-//    return RedirectToAction("Index");
-//}

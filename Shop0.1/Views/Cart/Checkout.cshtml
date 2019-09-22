@@ -8,12 +8,11 @@
     Please enter your details, and we'll ship your goods right away!
     @using (Html.BeginForm())
     {
-        @Html.ValidationSummary()
         <h5>Ship to</h5>
         <div class="form-group row">
             <label class="col-sm-1 col-form-label">Name:</label>
             <div class="col-sm-10">
-                <input class="form-control" placeholder="Name" required>   @Html.DisplayFor(x => x.Name)
+                <input class="form-control" placeholder="Name" name="Name" required>
             </div>
         </div>
         <h5>Address</h5>

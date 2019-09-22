@@ -21,6 +21,7 @@ namespace DAL
 
         [Required]
         [StringLength(100)]
+        [DataType(DataType.MultilineText)]
         public string ShortDescription { get; set; }
 
         public int? CategoryId { get; set; }

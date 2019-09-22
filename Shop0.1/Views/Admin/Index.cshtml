@@ -1,22 +1,20 @@
 ﻿@model DAL.Good
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container">
     <h2>All goods</h2>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
     <table class="table">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">@Html.DisplayNameFor(model => model.GoodName)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.ImageUrl)</th>
                 <th scope="col">@Html.DisplayNameFor(model => model.ShortDescription)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.Price)</th>
                 <th scope="col">@Html.DisplayNameFor(model => model.Category)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Price)</th>
                 <th scope="col">@Html.DisplayNameFor(model => model.GoodCount)</th>
                 <th scope="col">Edit</th>
                 <th scope="col">Delete</th>
@@ -31,20 +29,22 @@
                         @good.GoodId
                     </td>
                     <td>@good.GoodName</td>
+                    <td>@good.ImageUrl</td>
                     <td>@good.ShortDescription</td>
-                    <td>@good.Price</td>
                     <td>@good.CategoryId</td>
+                    <td>@good.Price</td>
                     <td>@good.GoodCount</td>
                     <td>
-                        <a class="btn btn-info" href="@Url.Action("Edit", "Admin", new { goodId = good.GoodId }, null)" role="button">Edit</a>
+                        @Html.ActionLink("Edit", "NewGood", new { id = good.GoodId }, new { @class = "btn btn-warning btn-xs" })
                     </td>
                     <td>
-                        <a class="btn btn-danger" href="#" role="button">Delete</a>
+                        @Html.ActionLink("Delete", "Delete", new { id = good.GoodId }, new { @class = "btn btn-danger btn-xs" })
                     </td>
                 </tr>
             }
         </tbody>
     </table>
     @RenderPage("~/Views/Admin/Pagination.cshtml")
+    @Html.ActionLink("New good", "NewGood", null, new { @class = "btn btn-success" })
 </div>
 
