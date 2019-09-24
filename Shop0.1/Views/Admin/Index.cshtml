@@ -5,46 +5,54 @@
 }
 
 <div class="container">
-    <h2>All goods</h2>
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.GoodName)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.ImageUrl)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.ShortDescription)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.Category)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.Price)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.GoodCount)</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var good in ViewBag.Goods)
-            {
-
+    <div class="row justify-content-center" style="margin-top:50px;margin-bottom:50px;">
+        <h2>Admin: All Goods</h2>
+    </div>
+    <div class="row">
+        <table class="table table-striped">
+            <thead class="thead-dark">
                 <tr>
-                    <td>
-                        @good.GoodId
-                    </td>
-                    <td>@good.GoodName</td>
-                    <td>@good.ImageUrl</td>
-                    <td>@good.ShortDescription</td>
-                    <td>@good.CategoryId</td>
-                    <td>@good.Price</td>
-                    <td>@good.GoodCount</td>
-                    <td>
-                        @Html.ActionLink("Edit", "NewGood", new { id = good.GoodId }, new { @class = "btn btn-warning btn-xs" })
-                    </td>
-                    <td>
-                        @Html.ActionLink("Delete", "Delete", new { id = good.GoodId }, new { @class = "btn btn-danger btn-xs" })
-                    </td>
+                    <th scope="col">#</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.GoodName)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.ImageUrl)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.ShortDescription)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Category)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Price)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.GoodCount)</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
                 </tr>
-            }
-        </tbody>
-    </table>
-    @RenderPage("~/Views/Admin/Pagination.cshtml")
-    @Html.ActionLink("New good", "NewGood", null, new { @class = "btn btn-success" })
+            </thead>
+            <tbody>
+                @foreach (var good in ViewBag.Goods)
+                {
+
+                    <tr>
+                        <td>
+                            @good.GoodId
+                        </td>
+                        <td>@good.GoodName</td>
+                        <td>@good.ImageUrl</td>
+                        <td>@good.ShortDescription</td>
+                        <td>@good.CategoryId</td>
+                        <td>@good.Price</td>
+                        <td>@good.GoodCount</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = good.GoodId }, new { @class = "btn btn-warning btn-xs" })
+                        </td>
+                        <td>
+                            @Html.ActionLink("Delete", "Delete", new { id = good.GoodId }, new { @class = "btn btn-danger btn-xs" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="rov">
+        @RenderPage("~/Views/Admin/Pagination.cshtml")
+    </div>
+    <div class="row">
+        @Html.ActionLink("New good", "NewGood", null, new { @class = "btn btn-success" })
+    </div>
 </div>
 

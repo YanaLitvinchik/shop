@@ -32,6 +32,10 @@ namespace Shop0._1.Controllers
         {
             return View(repository.Get(id));
         }
+        public ActionResult Edit(int id = 0)
+        {
+            return View(repository.Get(id));
+        }
         [HttpPost]
         public ActionResult NewGood(Good newGood)
         {

@@ -2,8 +2,10 @@
 @{
     ViewBag.Title = "Cart";
 }
-<div>
-    <h2>Your basket</h2>
+    <div class="row justify-content-center" style="margin-top:50px;margin-bottom:50px;">
+        <h2>Your basket</h2>
+    </div>
+<div class="row">
     <table class="table table-hover">
         <thead>
             <tr>
@@ -42,8 +44,8 @@
             </tr>
         </tfoot>
     </table>
-    <div class="d-flex justify-content-center">
+</div>
+    <div class="row d-flex justify-content-center">
         <a href="@Model.ReturnUrl"  class="btn btn-info btn-lg m-1" role="button" aria-pressed="true">Continue shopping</a>
         <a href="@Url.Action("Checkout")" class="btn btn-success btn-lg m-1" role="button" aria-pressed="true">Checkout now</a>
     </div>
-</div>

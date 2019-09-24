@@ -4,68 +4,71 @@
 }
 
 <div class="container">
-    <h4>Check out now</h4>
-    Please enter your details, and we'll ship your goods right away!
-    @using (Html.BeginForm())
-    {
-        <h5>Ship to</h5>
-        <div class="form-group row">
-            <label class="col-sm-1 col-form-label">Name:</label>
-            <div class="col-sm-10">
-                <input class="form-control" placeholder="Name" name="Name" required>
+    <div class="row justify-content-center" style="margin-top:50px;margin-bottom:50px;">
+        <h2>Check out now</h2>
+    </div>
+        @Html.ValidationSummary()
+       <h6> Please enter your details, and we'll ship your goods right away!</h6><br/>
+        @using (Html.BeginForm())
+        {
+            <h5>Ship to</h5>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Name:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" placeholder="Name" name="Name" required>
+                </div>
             </div>
-        </div>
-        <h5>Address</h5>
-        <div class="form-group row">
-            <label class="col-sm-1 col-form-label">Line 1:</label>
-            <div class="col-sm-10">
-                <input class="form-control" placeholder="Line 1" name="Line1" required>
+            <h5>Address</h5>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Line 1:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" placeholder="Line 1" name="Line1" required>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-1 col-form-label">Line 2:</label>
-            <div class="col-sm-10">
-                <input class="form-control" placeholder="Line 2" name="Line2" required>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Line 2:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" placeholder="Line 2" name="Line2" required>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-1 col-form-label">Line 3:</label>
-            <div class="col-sm-10">
-                <input class="form-control" placeholder="Line 3" name="Line3" required>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Line 3:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" placeholder="Line 3" name="Line3" required>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-1 col-form-label">City:</label>
-            <div class="col-sm-10">
-                <input class="form-control" placeholder="City" name="City" required>   
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">City:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" placeholder="City" name="City" required>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-1 col-form-label">State:</label>
-            <div class="col-sm-10">
-                <input class="form-control" placeholder="State" name="State" required>  
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">State:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" placeholder="State" name="State" required>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-1 col-form-label">Zip:</label>
-            <div class="col-sm-10">
-                <input class="form-control" placeholder="Zip" name="Zip" required>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Zip:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" placeholder="Zip" name="Zip" required>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-sm-1 col-form-label">Country:</label>
-            <div class="col-sm-10">
-                <input class="form-control" placeholder="Country" name="Country" required>
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Country:</label>
+                <div class="col-sm-10">
+                    <input class="form-control" placeholder="Country" name="Country" required>
+                </div>
             </div>
-        </div>
-        <h5>Options</h5>
-        <label>
-            @Html.EditorFor(x => x.GiftWrap)
-            Gift wrap these items
-        </label>
+            <h5>Options</h5>
+            <label>
+                @Html.EditorFor(x => x.GiftWrap)
+                Gift wrap these items
+            </label>
 
-        <p align="center">
-            <input class="btn actionButtons btn-success" type="submit" value="Complete order" />
-        </p>
-    }
-</div>
+            <p align="center">
+                <input class="btn actionButtons btn-success" type="submit" value="Complete order" />
+            </p>
+        }
+    </div>
